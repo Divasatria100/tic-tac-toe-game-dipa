@@ -3,6 +3,14 @@ const squares = document.getElementsByClassName('square')
 const players = ['X', 'O']
 let currentPlayer = players[0]
 
+const xScoreText = document.getElementById('xScore')
+const oScoreText = document.getElementById('oScore')
+const drawScoreText = document.getElementById('drawScore')
+
+let xScore = 0
+let oScore = 0
+let drawScore = 0
+
 const endMessage = document.createElement('h2')
 endMessage.textContent = `X's turn!`
 endMessage.style.marginTop = '30px'
@@ -20,7 +28,6 @@ const winning_combinations = [
     [2, 4, 6]
 ]
 
-// fungsi untuk ubah background
 function updateBackground() {
     if(currentPlayer === 'X') {
         document.body.style.backgroundColor = 'red'
@@ -29,7 +36,6 @@ function updateBackground() {
     }
 }
 
-// jalankan pertama kali
 updateBackground()
 
 for(let i = 0; i < squares.length; i++){
@@ -42,6 +48,14 @@ for(let i = 0; i < squares.length; i++){
         squares[i].textContent = currentPlayer
 
         if(checkWin(currentPlayer)) {
+            if(currentPlayer === 'X') {
+                xScore++
+                xScoreText.textContent = xScore
+            } else {
+                oScore++
+                oScoreText.textContent = oScore
+            }
+
             endMessage.textContent = `Game over! ${currentPlayer} wins!`
             return
         }
@@ -59,7 +73,6 @@ for(let i = 0; i < squares.length; i++){
             endMessage.textContent = `O's turn!`
         }
 
-        // update background setelah ganti player
         updateBackground()
     })
 }
@@ -99,6 +112,5 @@ function restartButton() {
     endMessage.textContent = `X's turn!`
     currentPlayer = players[0]
 
-    // reset background
     updateBackground()
 }

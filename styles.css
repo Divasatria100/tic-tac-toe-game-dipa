@@ -8,6 +8,34 @@ h1 {
     text-align: center;
 }
 
+#scoreBoard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.score-box {
+    width: 80px;
+    padding: 8px;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: 1px solid #D3D3D3;
+    border-radius: 10px;
+}
+
+.score-box h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.score-box p {
+    margin: 5px 0 0 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
 #board {
     margin-left: auto;
     margin-right: auto;
@@ -37,6 +65,7 @@ h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 30px;
     height: 40px;
     width: 150px;
     background-color: #FFFFFF;
