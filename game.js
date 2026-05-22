@@ -61,6 +61,9 @@ for(let i = 0; i < squares.length; i++){
         }
 
         if(checkTie()) {
+            drawScore++
+            drawScoreText.textContent = drawScore
+
             endMessage.textContent = `Game is tied!`
             return
         }
